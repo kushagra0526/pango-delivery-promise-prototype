@@ -1,0 +1,13 @@
+{
+ "note": "Frozen before the first run. Different period (autumn peak), more orders, a new destination zone (PL), a Bring strike across all zones, a PostNord peak-season slowdown, and a DHL lane to DE that becomes permanently slower. Dev never saw any of these.",
+ "seeds": [101, 102, 103],
+ "cfg": {
+  "start": "2025-09-01", "days": 182, "orders_per_day": 420, "handling_slip": 0.10, "spread": 0.38,
+  "zones": ["SE", "NO", "DK", "FI", "DE", "NL", "FR", "PL"], "zone_w": [34, 12, 9, 9, 14, 7, 7, 8],
+  "disruptions": [
+   {"carrier": "Bring", "zone": "*", "start": 45, "days": 12, "extra": 2.0},
+   {"carrier": "PostNord", "zone": "*", "start": 80, "days": 21, "extra": 1.5},
+   {"carrier": "DHL", "zone": "DE", "start": 120, "days": 200, "extra": 1.0}
+  ]
+ }
+}
