@@ -17,7 +17,7 @@ This repo is a small engine plus a simulator to measure that.
 - **In-transit tracking promise (this).** It reads what tracking already shows today:
   1. **Promise d is judged on parcels whose d-day outcome is already known.** A parcel shipped 6 business days ago and still out is already late for any promise under 6 days. It counts now, not when it finally arrives. The promise is the smallest d that the latest 150 such parcels kept (at most 7 late).
   2. **A slowdown shift from parcels that are not due yet.** Normally about half the lane's parcels are still out after k ≈ median days. When far more of the latest 40 are still out than history says, the lane has slowed by s days, and s is added. This shows a +2-day slowdown before any promise is missed.
-- **Simulator.** About 64k orders over 6 months:
+- **Simulator.** About 68k orders over 6 months per seed:
   - carriers PostNord, DHL, Bring and UPS; Nordic and EU zones;
   - lognormal transit per lane;
   - disruptions: temporary slowdowns, and a lane that gets permanently slower.
@@ -25,7 +25,7 @@ This repo is a small engine plus a simulator to measure that.
 Each method sees only deliveries known by the end of the previous day, plus "not delivered yet". A test checks this: changing the future does not move earlier promises.
 
 ## Results
-**Held-out**: [`heldout/config.json`](heldout/config.json), frozen in git (commit `048813b`) before the first run. It covers an autumn peak, a new zone (PL), a Bring strike, a PostNord peak slowdown, and DHL to DE becoming permanently slower. 3 seeds, about 230k orders. First run, nothing changed after it ([`out/heldout_first_run.json`](out/heldout_first_run.json)):
+**Held-out**: [`heldout/config.json`](heldout/config.json), frozen in git (commit `048813b`) before the first run. It covers an autumn peak, a new zone (PL), a Bring strike, a PostNord peak slowdown, and DHL to DE becoming permanently slower. 3 seeds, 245k orders (207k scored after a 4-week warm-up). First run, nothing changed after it ([`out/heldout_first_run.json`](out/heldout_first_run.json)):
 
 | method | on time (target 95%) | avg promise | late during disruptions |
 |---|---|---|---|
